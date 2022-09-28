@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+
+<!-- JS -->
+
+<script>
+
+    //Funções 
+
+    //Função para Pular a linha
+    function pulaLinha() {
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    //Função para mostrar o texto
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    //Função para calcular o IMC
+    function calculaImc(altura, peso) {
+        return peso / (altura * altura);
+    }
+
+    //Variáveis 
+
+    var totalImc = calculaImc(1.71, 73) + calculaImc(1.72, 68);
+
+    //Código 
+
+    mostra("A soma dos IMCs é: " + totalImc);
+
+</script>

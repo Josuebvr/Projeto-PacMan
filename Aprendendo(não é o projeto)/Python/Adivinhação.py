@@ -54,3 +54,9 @@ def jogar(): # Função jogo_adivinhacao
         
     # Isso aqui é indicar que acabou o jogo
     print("Fim do jogo") # Imprime na tela
+
+
+
+
+if(__name__ == "__main__"): # Se o arquivo for executado diretamente
+    jogar() # Executa a função de jogar

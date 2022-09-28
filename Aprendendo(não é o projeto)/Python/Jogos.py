@@ -14,6 +14,8 @@ jogo = int(input("Qual jogo? ")) # Pede pra definir o jogo
 
 if (jogo == 1): # Se o jogo for 1
     print("Jogando Forca") 
+    Forca.jogar() # Executa a função jogo_forca
 elif (jogo == 2): # Se o jogo for 2
+    Adivinhação.jogar() # Executa a função jogo_adivinhacao
     print("Jogando Adivinhação") 
 

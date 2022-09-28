@@ -20,5 +20,9 @@ def escolhe_jogo(): # Função escolhe_jogo
         Adivinhação.jogar() # Executa a função jogo_adivinhacao
         print("Jogando Adivinhação") 
 
+
+
+
+
 if(__name__ == "__main__"): # Se o arquivo for executado diretamente
     escolhe_jogo() # Executa a função de escolher o jogo

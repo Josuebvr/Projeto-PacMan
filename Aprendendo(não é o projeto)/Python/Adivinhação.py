@@ -6,11 +6,23 @@ print("Bem vindo ao jogo de adivinhação") # Imprime na tela
 print("--------------------------------") #
 
 # Isso aqui é pra definir o número secreto
-numero_secreto = round(random.random() * 100) # random.random() gera um número aleatório entre 0 e 1
-total_de_tentativas = 3 # Define o número de tentativas
-
+numero_secreto = random.randrange(1, 101) # Gera um número aleatório entre 1 e 100
+total_de_tentativas = 0 # Define o número de tentativas
 
 # Isso aqui é pra definir o nível de dificuldade
+print("Qual nível de dificuldade?") # Imprime na tela
+print("(1) Fácil (2) Médio (3) Difícil") # Imprime na tela
+
+nivel = int(input("Defina o nível: ")) # Pede pra definir o nível
+
+if(nivel == 1): # Se o nível for 1
+    total_de_tentativas = 20 # Define o número de tentativas como 20
+elif(nivel == 2): # Se o nível for 2
+    total_de_tentativas = 10 # Define o número de tentativas como 10
+else: # Se o nível for 3
+    total_de_tentativas = 5 # Define o número de tentativas como 5
+
+# Ínicio do loop
 for rodada in range(1, total_de_tentativas + 1): # range(1, 4) = 1, 2, 3
     print("Tentativa {} de {}".format(rodada, total_de_tentativas)) # Imprime na tela
     chute = input("Digite um número entre 1 e 100: ") # Imprime na tela e recebe um valor

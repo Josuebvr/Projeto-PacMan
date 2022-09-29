@@ -2,33 +2,34 @@
 
 <!-- JS -->
 
-<script>
+<script> //Função para calcular o IMC
 
     //Funções 
 
     //Função para Pular a linha
-    function pulaLinha() {
-        document.write("<br>");
-        document.write("<br>");
+    function pulaLinha() { 
+        document.write("<br>"); //Pula linha
+        document.write("<br>"); //Pula linha
     }
 
     //Função para mostrar o texto
-    function mostra(frase) {
-        document.write(frase);
-        pulaLinha();
+    function mostra(frase) { 
+        document.write(frase); //Mostra o texto
+        pulaLinha(); //Pula linha
     }
 
     //Função para calcular o IMC
-    function calculaImc(altura, peso) {
-        return peso / (altura * altura);
+    function calculaImc(altura, peso) { //Recebe os valores
+        return peso / (altura * altura); //Retorna o valor
     }
 
-    //Variáveis 
+    //Função para perguntar e mostrar o resultado
+    var nome = prompt("Qual é o seu nome?"); //Pergunta o nome
+    var alturainformada = prompt(nome + ", qual a sua altura?"); //Pergunta a altura
+    var pesoinformado = prompt(nome + ", qual o seu peso?"); //Pergunta o peso
 
-    var totalImc = calculaImc(1.71, 73) + calculaImc(1.72, 68);
+    var imc = calculaImc(alturainformada, pesoinformado); //Chama a função e passa os valores
 
-    //Código 
-
-    mostra("A soma dos IMCs é: " + totalImc);
+    document.write(nome + ", o seu IMC calculado é " + imc); //Mostra o valor
 
 </script>

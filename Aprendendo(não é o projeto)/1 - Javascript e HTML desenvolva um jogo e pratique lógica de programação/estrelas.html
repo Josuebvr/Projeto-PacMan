@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<!-- JS -->
+
+<script> //Função para calcular o IMC
+
+    //Funções 
+
+    //Função para Pular a linha
+    function pulaLinha() { 
+        document.write("<br>"); //Pula linha
+    }
+
+    //Função para mostrar o texto
+    function mostra(frase) { 
+        document.write(frase); //Mostra o texto
+        pulaLinha(); //Pula linha
+    }
+
+    for(var linha = 1; linha <= 3; linha++) { //Enquanto o número de linhas for menor ou igual a 3
+
+        for(var coluna = 1; coluna <= 10; coluna++) { //Enquanto o número de colunas for menor ou igual a 10
+            document.write("*"); //Mostra o asterisco
+        }
+        pulaLinha(); //Pula linha
+    }
+
+</script>

@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+
+<!-- JS -->
+
+<script> //Função para calcular o IMC
+
+    //Funções 
+
+    //Função para Pular a linha
+    function pulaLinha() { 
+        document.write("<br>"); //Pula linha
+        document.write("<br>"); //Pula linha
+    }
+
+    //Função para mostrar o texto
+    function mostra(frase) { 
+        document.write(frase); //Mostra o texto
+        pulaLinha(); //Pula linha
+    }
+
+    //Sistema de multiplicação
+    for(var multiplicador = 1; multiplicador <= 10; multiplicador++) { 
+  //^O multiplicador começa em 1, enquanto for menor ou igual a 10, e o multiplicador for igual a ele mesmo mais 1
+        mostra(7 * multiplicador); //Mostra o resultado da multiplicação
+    }
+
+    mostra("Fim da tabuada"); //Mostra o fim da tabuada
+
+</script>

@@ -32,4 +32,18 @@
 
     document.write(nome + ", o seu IMC calculado é " + imc); //Mostra o valor
 
+    //Recomendação de peso
+    if(imc < 18.5) { //Se o IMC for menor que 18.5
+        mostra(" Você está abaixo do peso recomendado"); //Mostra a recomendação de peso
+    }
+    else if(imc >= 18.5 && imc < 25) { //Se o IMC for maior ou igual a 18.5 e menor que 25
+        mostra(" Você está com o peso recomendado"); //Mostra a recomendação de peso
+    }
+    else if(imc >= 25 && imc < 30) { //Se o IMC for maior ou igual a 35 e menor que 40
+        mostra(" Você está acima do peso recomendado"); //Mostra a recomendação de peso
+    }
+    else if(imc >= 30) { //Se o IMC for maior ou igual a 40
+        mostra(" Você está muito acima do peso recomendado"); //Mostra a recomendação de peso
+    }
+
 </script>

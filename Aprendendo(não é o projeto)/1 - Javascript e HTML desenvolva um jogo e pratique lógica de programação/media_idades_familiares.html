@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+
+<!-- JS -->
+
+<script> //Função para calcular o IMC
+
+    //Funções 
+
+    //Função para Pular a linha
+    function pulaLinha() { 
+        document.write("<br>"); //Pula linha
+        document.write("<br>"); //Pula linha
+    }
+
+    //Função para mostrar o texto
+    function mostra(frase) { 
+        document.write(frase); //Mostra o texto
+        pulaLinha(); //Pula linha
+    }
+
+    
+    var totalFamiliares = parseInt(prompt("Quantos familiares você tem?")); //Pergunta quantos familiares a pessoa tem
+
+    var numero = 1 //Variável para definir o while
+    var totalIdades = 0; //Variável para adicionar as idades ao total de idades
+    while(numero <= totalFamiliares) { //Enquanto o contador for menor ou igual ao total de familiares
+        var idade = parseInt(prompt("Qual a idade do familiar?")); //Pergunta a idade do familiar
+        totalIdades = totalIdades + idade; //Adiciona a idade ao total de idades
+        numero++; //Adiciona 1 ao contador
+    }
+
+    var mediaDasIdades = totalIdades / totalFamiliares; //Calcula a média de idades
+    mostra("A média das idades dos familiares é " + mediaDasIdades); //Mostra a média das idades
+
+</script>

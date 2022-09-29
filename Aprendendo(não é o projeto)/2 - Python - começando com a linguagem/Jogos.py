@@ -1,5 +1,5 @@
-import Forca # Importa o arquivo Forca.py
-import Adivinhação # Importa o arquivo Adivinhação.py
+import forca # Importa o arquivo Forca.py
+import adivinhação # Importa o arquivo Adivinhação.py
 
 def escolhe_jogo(): # Função escolhe_jogo
     # Isso aqui é só pra deixar o output mais bonito
@@ -15,9 +15,9 @@ def escolhe_jogo(): # Função escolhe_jogo
 
     if (jogo == 1): # Se o jogo for 1
         print("Jogando Forca") 
-        Forca.jogar() # Executa a função jogo_forca
+        forca.jogar() # Executa a função jogo_forca
     elif (jogo == 2): # Se o jogo for 2
-        Adivinhação.jogar() # Executa a função jogo_adivinhacao
+        adivinhação.jogar() # Executa a função jogo_adivinhacao
         print("Jogando Adivinhação") 
 
 

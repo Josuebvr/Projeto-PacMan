@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+
+<!-- JS -->
+
+<script> 
+
+    //Funções 
+
+    //Função para Pular a linha
+    function pulaLinha() { 
+        document.write("<br>"); //Pula linha
+        document.write("<br>"); //Pula linha
+    }
+
+    //Função para mostrar o texto
+    function mostra(frase) { 
+        document.write(frase); //Mostra o texto
+        pulaLinha(); //Pula linha
+    }
+
+    //Pontos do time
+    var vitorias = parseInt(prompt("Quantas vitórias o seu time tem?")); //Pergunta o nome do time
+    var empates = parseInt(prompt("Quantos empates o seu time tem?")); //Pergunta a quantidade de empates do time
+
+    var pontos = (vitorias * 3) + empates; //Calcula os pontos
+
+    mostra("O seu time tem " + pontos + " pontos"); //Mostra o valor dos pontos
+
+
+
+</script>

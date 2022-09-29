@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<!-- JS -->
+
+<script> //Função para calcular o IMC
+
+    //Funções 
+
+    //Função para Pular a linha
+    function pulaLinha() { 
+        document.write("<br>"); //Pula linha
+        document.write("<br>"); //Pula linha
+    }
+
+    //Função para mostrar o texto
+    function mostra(frase) { 
+        document.write(frase); //Mostra o texto
+        pulaLinha(); //Pula linha
+    }
+
+    //Ano da primeira copa e data limite
+    var limite = parseInt(prompt("Digite a data limite")); //Pergunta a data limite
+    var anoCopa = 1930; //Ano da primeira copa
+
+
+    var anoPrimeiraCopa = 1930; //Isso aqui é só pra deixar o último print mais bonito
+
+    //Loop
+    while (anoCopa <= limite) { //Enquanto o ano da copa for menor ou igual a 2014
+        mostra("Teve copa em " + anoCopa); //Mostra o ano da copa
+        anoCopa = anoCopa + 4; //Adiciona 4 anos ao ano da copa
+    }
+
+    mostra("Essas foram toda as copas de " + anoPrimeiraCopa + " até " + limite); //Mostra o fim do loop
+
+</script>

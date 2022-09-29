@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<!-- JS -->
+
+<script> //Função para calcular o IMC
+
+    //Funções 
+
+    //Função para Pular a linha
+    function pulaLinha() { 
+        document.write("<br>"); //Pula linha
+        document.write("<br>"); //Pula linha
+    }
+
+    //Função para mostrar o texto
+    function mostra(frase) { 
+        document.write(frase); //Mostra o texto
+        pulaLinha(); //Pula linha
+    }
+
+    //Sistema de chute e número
+    var numeroPensado = Math.round(Math.random() * 10); //Número aleatório (para números mais altos, é só multiplicar por um número maior)
+    var chute = parseInt(prompt("Digite seu chute")); //Pergunta o chute
+
+    if (numeroPensado == chute) { //Se o número pensado for igual ao chute
+        mostra("Você acertou!"); //Mostra que acertou
+    } 
+    else { //Se o número pensado for diferente do chute
+        mostra("Você errou, o número pensado foi " + numeroPensado); //Mostra que errou
+    }
+
+
+</script>

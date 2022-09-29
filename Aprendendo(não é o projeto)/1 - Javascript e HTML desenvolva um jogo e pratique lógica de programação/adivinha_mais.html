@@ -5,8 +5,9 @@
 
 <script>
 
-    var segredo = 5; //Define a variável segredo como 5
+    var segredo = Math.round(Math.random() * 10); //Define a variável segredo aleatoriamente
     var input = document.querySelector("input"); //Pega o valor do input
+    input.focus(); //Coloca o cursor no input
 
     //Função para verificar se o valor é igual ao segredo
     function verifica() { //Função para verificar se o valor é igual ao segredo
@@ -18,8 +19,12 @@
             alert("Você errou!"); //Mostra a mensagem caso o valor do input for igual ao segredo
         }
 
+        input.value = ""; //Limpa o input
+        input.focus(); //Coloca o cursor no input
+
     }
 
+    //Faz o botão chamar a função verifica
     var button = document.querySelector("button"); //Pega o valor do botão
     button.onclick = verifica; //Quando o botão for clicado, executa a função verifica
 

@@ -20,13 +20,23 @@
 
     //Sistema de chute e número
     var numeroPensado = Math.round(Math.random() * 10); //Número aleatório (para números mais altos, é só multiplicar por um número maior)
-    var chute = parseInt(prompt("Digite seu chute")); //Pergunta o chute
 
-    if (numeroPensado == chute) { //Se o número pensado for igual ao chute
-        mostra("Você acertou!"); //Mostra que acertou
-    } 
-    else { //Se o número pensado for diferente do chute
-        mostra("Você errou, o número pensado foi " + numeroPensado); //Mostra que errou
+    var tentativas = 1; //Número de tentativas
+
+    while(tentativas <= 3) { //Enquanto o número de tentativas for maior que 0
+
+        var chute = parseInt(prompt("Digite seu chute")); //Pergunta o chute
+
+        if (numeroPensado == chute) { //Se o número pensado for igual ao chute
+            mostra("Você acertou, o número pensado era " + numeroPensado); //Mostra que acertou
+            break; //Para o loop
+        } 
+        else { //Se o número pensado for diferente do chute
+            mostra("Você errou!"); //Mostra que errou
+        }
+
+        tentativas++; //Diminui o número de tentativas
+
     }
 
 </script>

@@ -1,0 +1,30 @@
+<meta charset="UTF-8"> <!– Define o tipo de codificação do documento ->
+
+<input/> <!– Define um campo de entrada de dados ->
+<button>Compare com o meu segredo</button> <!– Define um botão ->
+
+<script>
+
+    var segredo = 5; //Define a variável segredo como 5
+    var input = document.querySelector("input"); //Pega o valor do input
+
+    //Função para verificar se o valor é igual ao segredo
+    function verifica() { //Função para verificar se o valor é igual ao segredo
+
+        if(input.value == segredo) { //Se o valor do input for igual ao segredo
+            alert("Você acertou!"); //Mostra a mensagem caso o valor do input for igual ao segredo
+        }
+        else { //Se não
+            alert("Você errou!"); //Mostra a mensagem caso o valor do input for igual ao segredo
+        }
+
+    }
+
+    var button = document.querySelector("button"); //Pega o valor do botão
+    button.onclick = verifica; //Quando o botão for clicado, executa a função verifica
+
+
+
+
+
+</script>

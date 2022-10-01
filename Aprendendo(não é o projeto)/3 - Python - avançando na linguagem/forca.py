@@ -15,10 +15,11 @@ def jogar():  # Função jogo_forca
 
         # Pede para o jogador digitar uma letra
         chute = input("Qual a letra? ") # Pede para o jogador digitar uma letra
+        chute = chute.strip()  # Remove os espaços em branco
 
         index = 0  # Variável que vai guardar o índice da letra
         for letra in palavra_secreta:  # Para cada letra na palavra secreta
-            if (chute == letra):  # Se o chute for igual a letra
+            if (chute.upper() == letra.upper()):  # Se o chute for igual a letra (ignorando maiúsculas e minúsculas)
                 print("Encontrei a letra {} na posição {}".format(letra, index))  # Imprime na tela caso o chute seja igual a letra
             index = index + 1  # Incrementa o índice
 

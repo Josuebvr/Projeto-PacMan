@@ -4,8 +4,20 @@ def jogar():  # Função jogo_forca
     print("--------------------------------")
     print("---Bem vindo ao jogo de Forca---")  # Imprime na tela
     print("--------------------------------")
+    
+    #A partir daqui nada funciona
+     #               arquivo = open("palavras.txt", "r")  # Abre o arquivo
+      #              palavras = []  # Cria uma lista vazia
+       #             
+        #            for linha in arquivo:  # Para cada linha no arquivo
+         #               linha = linha.strip()  # Remove os espaços em branco
+          #              palavras.append(linha)  # Adiciona a linha na lista
+           #             
+            #        arquivo.close()  # Fecha o arquivo
+             #       
+              #      print(palavras)  # Imprime a lista
 
-    palavra_secreta = "banana".upper()  # Palavra secreta
+    palavra_secreta = "maça".upper()  # Palavra secreta
     # Lista que adiciona um _ na lista de letras acertadas baseado no tamanho da palavra secreta
     letras_acertadas = ["_" for letras in palavra_secreta]  
     

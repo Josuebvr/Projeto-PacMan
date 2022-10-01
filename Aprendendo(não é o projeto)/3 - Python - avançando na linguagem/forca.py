@@ -4,30 +4,60 @@ def jogar():  # Função jogo_forca
     print("--------------------------------")
     print("---Bem vindo ao jogo de Forca---")  # Imprime na tela
     print("--------------------------------")
+    
+    #A partir daqui nada funciona
+     #               arquivo = open("palavras.txt", "r")  # Abre o arquivo
+      #              palavras = []  # Cria uma lista vazia
+       #             
+        #            for linha in arquivo:  # Para cada linha no arquivo
+         #               linha = linha.strip()  # Remove os espaços em branco
+          #              palavras.append(linha)  # Adiciona a linha na lista
+           #             
+            #        arquivo.close()  # Fecha o arquivo
+             #       
+              #      print(palavras)  # Imprime a lista
 
-    palavra_secreta = "banana"  # Palavra secreta
+    palavra_secreta = "maça".upper()  # Palavra secreta
+    # Lista que adiciona um _ na lista de letras acertadas baseado no tamanho da palavra secreta
+    letras_acertadas = ["_" for letras in palavra_secreta]  
+    
+    for letras in palavra_secreta:  # Para cada letra na palavra secreta
+        letras_acertadas.append("_")  # Adiciona um _ na lista de letras acertadas baseado no tamanho da palavra secreta
 
     enforcou = False  # Variável que diz se o jogador foi enforcado
     acertou = False  # Variável que diz se o jogador acertou a palavra secreta
+    erros = 0  # Variável que conta os erros
+    
+    print(letras_acertadas)  # Imprime na tela a prévia de quantas letras tem a palavra secreta
 
     # Enquanto o jogador não for enforcado e não acertar a palavra secreta
     while (not enforcou and not acertou):
 
         # Pede para o jogador digitar uma letra
-        chute = input("Qual a letra? ") # Pede para o jogador digitar uma letra
-        chute = chute.strip()  # Remove os espaços em branco
-
-        index = 0  # Variável que vai guardar o índice da letra
-        for letra in palavra_secreta:  # Para cada letra na palavra secreta
-            if (chute.upper() == letra.upper()):  # Se o chute for igual a letra (ignorando maiúsculas e minúsculas)
-                print("Encontrei a letra {} na posição {}".format(letra, index))  # Imprime na tela caso o chute seja igual a letra
-            index = index + 1  # Incrementa o índice
-
-        print("Jogando...")  # Imprime que ainda está jogando
+        # Pede para o jogador digitar uma letra
+        chute = input("Qual a letra? ")
+        chute = chute.strip().upper()  # Remove os espaços em branco e deixa tudo em maiúsculo
+        
+        if(chute in palavra_secreta): # Se a letra digitada estiver na palavra secreta
+            index = 0  # Variável que vai guardar o índice da letra
+            for letra in palavra_secreta:  # Para cada letra na palavra secreta
+                # Se o chute for igual a letra
+                if (chute == letra): # Imprime na tela caso o chute seja igual a letra
+                    letras_acertadas[index] = letra # Coloca a letra na lista de letras acertadas
+                index += 1  # Incrementa o índice
+        else:
+            erros += 1  # Incrementa o número de erros
+            
+        enforcou = erros == 6  # Se o número de erros for igual a 6, o jogador é enforcado
+        acertou = "_" not in letras_acertadas  # Se não tiver mais "_" na lista de letras acertadas, o jogador acertou a palavra secreta
+        print(letras_acertadas)  # Imprime na tela a lista de letras acertadas
 
     # Isso aqui é indicar que acabou o jogo
-    print("Fim do jogo")  # Imprime na tela
-
+    if(acertou):
+        print("Você ganhou!") 
+    else:
+        print("Você perdeu!") 
+    print("Fim do jogo")  
 
 if (__name__ == "__main__"):  # Se o arquivo for executado diretamente
     jogar()  # Executa a função de jogar

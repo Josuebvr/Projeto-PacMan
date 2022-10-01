@@ -6,7 +6,11 @@ def jogar():  # Função jogo_forca
     print("--------------------------------")
 
     palavra_secreta = "banana".upper()  # Palavra secreta
-    letras_acertadas = ["_", "_", "_", "_", "_", "_"]  # Lista de letras acertadas
+    # Lista que adiciona um _ na lista de letras acertadas baseado no tamanho da palavra secreta
+    letras_acertadas = ["_" for letras in palavra_secreta]  
+    
+    for letras in palavra_secreta:  # Para cada letra na palavra secreta
+        letras_acertadas.append("_")  # Adiciona um _ na lista de letras acertadas baseado no tamanho da palavra secreta
 
     enforcou = False  # Variável que diz se o jogador foi enforcado
     acertou = False  # Variável que diz se o jogador acertou a palavra secreta

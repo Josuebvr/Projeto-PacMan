@@ -20,8 +20,9 @@ def jogar():  # Função jogo_forca
             
         else:
             erros += 1  # Incrementa o número de erros
+            desenha_forca(erros)  # Chama a função desenha_forca
             
-        enforcou = erros == 6  # Se o número de erros for igual a 6, o jogador é enforcado
+        enforcou = erros == 7  # Se o número de erros for igual a 7, o jogador é enforcado
         acertou = "_" not in letras_acertadas  # Se não tiver mais "_" na lista de letras acertadas, o jogador acertou a palavra secreta
         print(letras_acertadas)  # Imprime na tela a lista de letras acertadas
 
@@ -86,45 +87,109 @@ def inicializa_letras_acertadas(palavra):  # Função que inicializa as letras a
 
 
 def pede_chute():  # Função que pede o chute
-            chute = input("Qual a letra? ") # Pede para o jogador digitar uma letra
-            chute = chute.strip().upper()  # Remove os espaços em branco e deixa tudo em maiúsculo
-            return chute  # Retorna o chute
+    chute = input("Qual a letra? ") # Pede para o jogador digitar uma letra
+    chute = chute.strip().upper()  # Remove os espaços em branco e deixa tudo em maiúsculo
+    return chute  # Retorna o chute
         
         
 
 def marca_chutes_correto(chute, letras_acertadas, palavra_secreta):  # Função que marca os chutes corretos
-                index = 0  # Variável que vai guardar o índice da letra
-                for letra in palavra_secreta:  # Para cada letra na palavra secreta
+    index = 0  # Variável que vai guardar o índice da letra
+    for letra in palavra_secreta:  # Para cada letra na palavra secreta
                     
-                # Se o chute for igual a letra
-                    if (chute == letra): # Imprime na tela caso o chute seja igual a letra
-                        letras_acertadas[index] = letra # Coloca a letra na lista de letras acertadas
-                index += 1  # Incrementa o índice
+        # Se o chute for igual a letra
+        if (chute == letra): # Imprime na tela caso o chute seja igual a letra
+            letras_acertadas[index] = letra # Coloca a letra na lista de letras acertadas
+        index += 1  # Incrementa o índice
 
 
 
-def imprime_mensagem_vencedor():  # Função que imprime a mensagem de vencedor
-    print("Parabéns, você ganhou!")  # Imprime na tela
+def desenha_forca(erros):                               # Função que desenha a forca
+    print("  _______     ")                             #
+    print(" |/      |    ")                             #
+                                                        #
+    if(erros == 1):                                     #
+        print(" |      (_)   ")                         #        
+        print(" |            ")                         #
+        print(" |            ")                         #
+        print(" |            ")                         #
+                                                        #
+    if(erros == 2):                                     #
+        print(" |      (_)   ")                         #
+        print(" |      \     ")                         #
+        print(" |            ")                         #
+        print(" |            ")                         #
+                                                        #
+    if(erros == 3):                                     #
+        print(" |      (_)   ")                         #
+        print(" |      \|    ")                         #
+        print(" |            ")                         #
+        print(" |            ")                         #
+                                                        #
+    if(erros == 4):                                     #
+        print(" |      (_)   ")                         #
+        print(" |      \|/   ")                         #
+        print(" |            ")                         #
+        print(" |            ")                         #
+                                                        #
+    if(erros == 5):                                     #
+        print(" |      (_)   ")                         #
+        print(" |      \|/   ")                         #
+        print(" |       |    ")                         #
+        print(" |            ")                         #
+                                                        #
+    if(erros == 6):                                     #
+        print(" |      (_)   ")                         #
+        print(" |      \|/   ")                         #
+        print(" |       |    ")                         #
+        print(" |      /     ")                         #
+                                                        #
+    if (erros == 7):                                    #
+        print(" |      (_)   ")                         #
+        print(" |      \|/   ")                         #
+        print(" |       |    ")                         #
+        print(" |      / \   ")                         #
+                                                        #
+    print(" |            ")                             #
+    print("_|___         ")                             #
+    print()                                             #
+    
+    
+
+def imprime_mensagem_vencedor():                        # Função que imprime a mensagem de vencedor
+    print("Parabéns, você ganhou!")                     # Imprime na tela
+    print("       ___________      ")                   #
+    print("      '._==_==_=_.'     ")                   #
+    print("      .-\\:      /-.    ")                   #
+    print("     | (|:.     |) |    ")                   #
+    print("      '-|:.     |-'     ")                   #
+    print("        \\::.    /      ")                   #
+    print("         '::. .'        ")                   #
+    print("           ) (          ")                   #
+    print("         _.' '._        ")                   #
+    print("        '-------'       ")                   #
 
 
 
-def imprime_mensagem_perdedor(palavra_secreta):  # Função que imprime a mensagem de perdedor
-    print("Puxa, você foi enforcado!")  # Imprime na tela
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def imprime_mensagem_perdedor(palavra_secreta):         # Função que imprime a mensagem de perdedor
+    print("Puxa, você foi enforcado!")                  # Imprime na tela
+    print("A palavra era {}".format(palavra_secreta))   #
+    print("    _______________         ")               #
+    print("   /               \       ")                #              
+    print("  /                 \      ")                #
+    print("//                   \/\  ")                 #
+    print("\|   XXXX     XXXX   | /   ")                #
+    print(" |   XXXX     XXXX   |/     ")               #
+    print(" |   XXX       XXX   |      ")               #
+    print(" |                   |      ")               #
+    print(" \__      XXX      __/     ")                #
+    print("   |\     XXX     /|       ")                #
+    print("   | |           | |        ")               #
+    print("   | I I I I I I I |        ")               #
+    print("   |  I I I I I I  |        ")               #
+    print("   \_             _/       ")                #
+    print("     \_         _/         ")                #
+    print("       \_______/           ")                #
 
 
 

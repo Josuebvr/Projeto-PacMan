@@ -5,7 +5,7 @@ def jogar():  # Função jogo_forca
     print("---Bem vindo ao jogo de Forca---")  # Imprime na tela
     print("--------------------------------")
     
-    #A partir daqui nada funciona
+    # Nada daqui funciona
      #               arquivo = open("palavras.txt", "r")  # Abre o arquivo
       #              palavras = []  # Cria uma lista vazia
        #             
@@ -15,14 +15,13 @@ def jogar():  # Função jogo_forca
            #             
             #        arquivo.close()  # Fecha o arquivo
              #       
-              #      print(palavras)  # Imprime a lista
+              #      numero = random.randrange(0, len(palavras))  # Gera um número aleatório
+                #     palavra_secreta = palavras[numero].upper()  # Pega a palavra secreta
 
     palavra_secreta = "maça".upper()  # Palavra secreta
+    
     # Lista que adiciona um _ na lista de letras acertadas baseado no tamanho da palavra secreta
     letras_acertadas = ["_" for letras in palavra_secreta]  
-    
-    for letras in palavra_secreta:  # Para cada letra na palavra secreta
-        letras_acertadas.append("_")  # Adiciona um _ na lista de letras acertadas baseado no tamanho da palavra secreta
 
     enforcou = False  # Variável que diz se o jogador foi enforcado
     acertou = False  # Variável que diz se o jogador acertou a palavra secreta

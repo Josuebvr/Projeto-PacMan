@@ -54,4 +54,5 @@ class Conta:
     def codigos_bancos():                                       #função que pega os codigos do bancos
         return {"BB": "001", "Caixa": "104", "Bradesco": "237"} #colocar como staticmethod faz com que não seja necessário instanciar a classe para chamar a função
     
+    
      

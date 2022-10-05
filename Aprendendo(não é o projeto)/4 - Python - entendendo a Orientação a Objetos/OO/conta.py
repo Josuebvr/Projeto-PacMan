@@ -21,16 +21,20 @@ class Conta:
     def transfere(self, valor, origem, destino): #função que transfere entre as contas
         origem.saca(valor) #saca o valor da conta origem
         destino.deposita(valor) #deposita o valor na conta destino
-        
-    def get_saldo(self): #função que pega_saldo
+    
+    @property  
+    def saldo(self): #função que pega_saldo
         return self.__saldo #retorna o saldo
     
-    def get_titular(self): #função que devolve para o titular
+    @property
+    def titular(self): #função que devolve para o titular
         return self.__titular #retorna o titular
     
-    def get_limite(self): #função que pega limite
+    @property
+    def limite(self): #função que pega limite
         return self.__limite #retorna o limite
     
-    def set_limite(self, limite): #função que seta o limite
+    @limite.setter
+    def limite(self, limite): #função que seta o limite
         self.__limite = limite #atribui o limite a conta
      

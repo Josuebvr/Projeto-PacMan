@@ -4,10 +4,11 @@ class Conta:
     
     def __init__(self, numero, titular, saldo, limite): #cria uma conta
         print("Construindo objeto ... {}".format(self)) #imprime a mensagem
-        self.__numero  = numero  #atribui o numero a conta
-        self.__titular = titular #atribui o titular a conta
-        self.__saldo   = saldo   #atribui o saldo a conta
-        self.__limite  = limite  #atribui o limite a conta
+        self.__numero  = numero     #atribui o numero a conta
+        self.__titular = titular    #atribui o titular a conta
+        self.__saldo   = saldo      #atribui o saldo a conta
+        self.__limite  = limite     #atribui o limite a conta
+        self.__codigo_banco = "001" #atribui o codigo do banco a conta
         
     def extrato(self): #função extrato
         print("Saldo {} do titular {}".format(self.__saldo, self.__titular)) #imprime o saldo da conta    
@@ -44,4 +45,13 @@ class Conta:
     @limite.setter
     def limite(self, limite):  #função que seta o limite
         self.__limite = limite #atribui o limite a conta
+     
+    @staticmethod       #função estática   
+    def codigo_banco(): #função que pega o codigo do banco
+        return "001"    #colocar como staticmethod faz com que não seja necessário instanciar a classe para chamar a função
+    
+    @staticmethod                                               #função estática   
+    def codigos_bancos():                                       #função que pega os codigos do bancos
+        return {"BB": "001", "Caixa": "104", "Bradesco": "237"} #colocar como staticmethod faz com que não seja necessário instanciar a classe para chamar a função
+    
      

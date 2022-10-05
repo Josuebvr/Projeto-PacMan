@@ -56,9 +56,9 @@ def jogar():  # Função jogo_forca
 
         # Isso aqui é só pra deixar o output mais bonito
 def abertura():  # Função de imprimir a abertura
-    print("*********************************") 
-    print("***Bem vindo ao jogo de Forca!***")  # Imprime na tela
-    print("*********************************")
+    print("---------------------------------") 
+    print("---Bem vindo ao jogo de Forca!---")  # Imprime na tela
+    print("---------------------------------")
     
     
     

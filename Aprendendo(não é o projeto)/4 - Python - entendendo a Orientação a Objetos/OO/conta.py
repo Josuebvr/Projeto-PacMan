@@ -17,4 +17,8 @@ class Conta:
     
     def saca(self, valor): #função saca
         self.__saldo -= valor #subtrai o valor do saldo
+        
+    def transfere(self, valor, origem, destino): #função transfere
+        origem.saca(valor) #saca o valor da conta origem
+        destino.deposita(valor) #deposita o valor na conta destino
      

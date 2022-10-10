@@ -44,20 +44,43 @@ class Serie(Programa): # Classe Filha
         
     def __str__(self): # Método imprime
         return f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes' # Imprime os valores de nome, ano, duração e likes
+  
+  
+  
+# Classe de Playlists  
+class Playlist: # Classe playlist
+    def __init__ (self, nome, programas): # Método construtor
+        self.nome = nome # Atributo nome
+        self.programas = programas  # Atributo programas
+        
+    def tamanho(self): # Método tamanho
+        return len(self.programas) # Retorna o tamanho da lista programas
 
 
 
 # Definições e prints de séries de filmes
 vingadores = Filme('vingadores - guerra infinita', 2018, 160) # Instância da classe Filme
-vingadores.dar_like() # Chama o método dar_like da instância vingadores
-
 atlanta = Serie('atlanta', 2018, 2) # Instância da classe Série
-atlanta.dar_like() # Chama o método dar_like da instância atlanta
-atlanta.dar_like() # Chama o método dar_like da instância atlanta
+tmep = Filme('todo mundo em pânico', 1999, 100) # Instância da classe Filme
+demolidor = Serie('demolidor', 2016, 2) # Instância da classe Série
 
-fimes_e_series = [vingadores, atlanta] # Lista de filmes e séries
 
-for programa in fimes_e_series: # Laço de repetição
+
+vingadores.dar_like() # Chama o método dar_like da instância vingadores
+tmep.dar_like()       # Chama o método dar_like da instância tmep
+tmep.dar_like()       # Chama o método dar_like da instância tmep
+tmep.dar_like()       # Chama o método dar_like da instância tmep
+tmep.dar_like()       # Chama o método dar_like da instância tmep
+demolidor.dar_like()  # Chama o método dar_like da instância demolidor
+demolidor.dar_like()  # Chama o método dar_like da instância demolidor
+atlanta.dar_like()    # Chama o método dar_like da instância atlanta
+atlanta.dar_like()    # Chama o método dar_like da instância atlanta
+atlanta.dar_like()    # Chama o método dar_like da instância atlanta
+
+fimes_e_series = [vingadores, atlanta, demolidor, tmep] # Lista de filmes e séries
+playlist_fim_de_semana = Playlist ('fim de semana', fimes_e_series) # Instância da classe playlist
+
+for programa in playlist_fim_de_semana.programas: # Laço de repetição
     print(programa) # Imprime os valores de programa
 
 

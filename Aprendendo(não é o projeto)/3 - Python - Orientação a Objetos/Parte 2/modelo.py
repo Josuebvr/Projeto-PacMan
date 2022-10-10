@@ -1,3 +1,6 @@
+# Classe Pai
+
+
 class Programa: # Classe Pai
     def __init__(self, nome, ano): # Método construtor
         self._nome = nome.title() # Atributo nome
@@ -26,10 +29,8 @@ class Programa: # Classe Pai
 
 class Filme(Programa): # Classe Filha
     def __init__(self, nome, ano, duracao): # Método construtor
-        self._nome = nome.title() # Atributo nome
-        self.ano = ano # Atributo ano
+        super().__init__(nome, ano) # Herança
         self.duracao = duracao # Atributo duração
-        self._likes = 0 # Atributo likes
       
       
         
@@ -38,10 +39,8 @@ class Filme(Programa): # Classe Filha
 
 class Serie(Programa): # Classe Filha
     def __init__(self, nome, ano, temporadas): # Método construtor
-        self._nome = nome.title() # Atributo nome
-        self.ano = ano # Atributo ano
+        super().__init__(nome, ano) # Herança
         self.temporadas = temporadas # Atributo temporadas
-        self._likes = 0 # Atributo likes
 
 
 

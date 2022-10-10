@@ -1,14 +1,7 @@
-
-
-
-# Classe de Filmes
-
-
-class Filme: # Classe Filme
-    def __init__(self, nome, ano, duracao): # Método construtor
+class Programa: # Classe Pai
+    def __init__(self, nome, ano): # Método construtor
         self.__nome = nome.title() # Atributo nome
         self.ano = ano # Atributo ano
-        self.duracao = duracao # Atributo duração
         self.__likes = 0 # Atributo likes
         
     @property # Decorador
@@ -24,34 +17,30 @@ class Filme: # Classe Filme
         self.__nome = novo_nome.title() # Atribui o valor de novo_nome a nome
 
     def dar_like(self): # Método dar_like
-        self.__likes += 1 # Atributo likes
+        self.__likes += 1 # Atributo likes  
+
+
+# Classe de Filmes
+
+
+class Filme(Programa): # Classe Filha
+    def __init__(self, nome, ano, duracao): # Método construtor
+        self.__nome = nome.title() # Atributo nome
+        self.ano = ano # Atributo ano
+        self.duracao = duracao # Atributo duração
+        self.__likes = 0 # Atributo likes
       
       
         
 # Classe de Séries
 
 
-class Serie: # Classe Série
+class Serie(Programa): # Classe Filha
     def __init__(self, nome, ano, temporadas): # Método construtor
         self.__nome = nome.title() # Atributo nome
         self.ano = ano # Atributo ano
         self.temporadas = temporadas # Atributo temporadas
         self.__likes = 0 # Atributo likes
-        
-    @property # Decorador
-    def likes(self): # Método likes
-        return self.__likes # Retorna o valor de likes
-        
-    @property # Decorador
-    def nome(self): # Método nome
-        return self.__nome # Retorna o valor de nome
-    
-    @nome.setter # Decorador
-    def nome(self, novo_nome): # Método nome
-        self.__nome = novo_nome.title() # Atribui o valor de novo_nome a nome
-
-    def dar_like(self): # Método dar_like
-        self.__likes += 1 # Atributo likes
 
 
 

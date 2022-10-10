@@ -20,8 +20,8 @@ class Programa: # Classe Pai
     def nome(self, novo_nome): # Método nome
         self._nome = novo_nome.title() # Atribui o valor de novo_nome a nome 
         
-    def imprime(self): # Método imprime
-        print(f'{self._nome} - {self.ano} - {self._likes} Likes') # Imprime os valores de nome, ano e likes
+    def __str__(self): # Método str
+        return f'{self._nome} - {self.ano} - {self._likes} Likes' # Retorna o valor de nome, ano e likes 
 
 
 
@@ -31,8 +31,8 @@ class Filme(Programa): # Classe Filha
         super().__init__(nome, ano) # Herança
         self.duracao = duracao # Atributo duração
         
-    def imprime(self): # Método imprime
-        print(f'{self._nome} - {self.ano} - {self.duracao} min - {self._likes} Likes') # Imprime os valores de nome, ano, duração e likes
+    def __str__(self): # Método imprime
+        return f'{self._nome} - {self.ano} - {self.duracao} min - {self._likes} Likes' # Imprime os valores de nome, ano, duração e likes
       
       
         
@@ -42,8 +42,8 @@ class Serie(Programa): # Classe Filha
         super().__init__(nome, ano) # Herança
         self.temporadas = temporadas # Atributo temporadas
         
-    def imprime(self): # Método imprime
-        print(f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes') # Imprime os valores de nome, ano, duração e likes
+    def __str__(self): # Método imprime
+        return f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes} Likes' # Imprime os valores de nome, ano, duração e likes
 
 
 
@@ -58,6 +58,6 @@ atlanta.dar_like() # Chama o método dar_like da instância atlanta
 fimes_e_series = [vingadores, atlanta] # Lista de filmes e séries
 
 for programa in fimes_e_series: # Laço de repetição
-    programa.imprime() # Chama o método imprime da instância programa
+    print(programa) # Imprime os valores de programa
 
 

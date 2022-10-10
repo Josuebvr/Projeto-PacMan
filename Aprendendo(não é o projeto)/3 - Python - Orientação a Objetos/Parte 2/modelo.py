@@ -1,23 +1,24 @@
 class Programa: # Classe Pai
     def __init__(self, nome, ano): # Método construtor
-        self.__nome = nome.title() # Atributo nome
+        self._nome = nome.title() # Atributo nome
         self.ano = ano # Atributo ano
-        self.__likes = 0 # Atributo likes
+        self._likes = 0 # Atributo likes
         
     @property # Decorador
     def likes(self): # Método likes
-        return self.__likes # Retorna o valor de likes
+        return self._likes # Retorna o valor de likes
+    
+    def dar_like(self): # Método dar_like
+        self._likes += 1 # Atributo likes 
         
     @property # Decorador
     def nome(self): # Método nome
-        return self.__nome # Retorna o valor de nome
+        return self._nome # Retorna o valor de nome
     
     @nome.setter # Decorador
     def nome(self, novo_nome): # Método nome
-        self.__nome = novo_nome.title() # Atribui o valor de novo_nome a nome
+        self._nome = novo_nome.title() # Atribui o valor de novo_nome a nome 
 
-    def dar_like(self): # Método dar_like
-        self.__likes += 1 # Atributo likes  
 
 
 # Classe de Filmes
@@ -25,10 +26,10 @@ class Programa: # Classe Pai
 
 class Filme(Programa): # Classe Filha
     def __init__(self, nome, ano, duracao): # Método construtor
-        self.__nome = nome.title() # Atributo nome
+        self._nome = nome.title() # Atributo nome
         self.ano = ano # Atributo ano
         self.duracao = duracao # Atributo duração
-        self.__likes = 0 # Atributo likes
+        self._likes = 0 # Atributo likes
       
       
         
@@ -37,10 +38,10 @@ class Filme(Programa): # Classe Filha
 
 class Serie(Programa): # Classe Filha
     def __init__(self, nome, ano, temporadas): # Método construtor
-        self.__nome = nome.title() # Atributo nome
+        self._nome = nome.title() # Atributo nome
         self.ano = ano # Atributo ano
         self.temporadas = temporadas # Atributo temporadas
-        self.__likes = 0 # Atributo likes
+        self._likes = 0 # Atributo likes
 
 
 

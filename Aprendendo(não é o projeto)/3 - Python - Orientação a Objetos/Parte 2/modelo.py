@@ -51,10 +51,18 @@ class Serie(Programa): # Classe Filha
 class Playlist: # Classe playlist
     def __init__ (self, nome, programas): # Método construtor
         self.nome = nome # Atributo nome
-        self.programas = programas  # Atributo programas
+        self._programas = programas # Atributo programas
         
-    def tamanho(self): # Método tamanho
-        return len(self.programas) # Retorna o tamanho da lista programas
+    def __getitem__(self, item):
+        return self._programas[item]
+        
+    @property # Decorador
+    def listagem(self): # Método listagem
+        return self._programas # Retorna o valor de programas
+    
+    @property # Decorador
+    def tamanho(self): # Método listagem
+        return len(self._programas) # Retorna o tamanho do programas
 
 
 
@@ -77,10 +85,15 @@ atlanta.dar_like()    # Chama o método dar_like da instância atlanta
 atlanta.dar_like()    # Chama o método dar_like da instância atlanta
 atlanta.dar_like()    # Chama o método dar_like da instância atlanta
 
+
+
 fimes_e_series = [vingadores, atlanta, demolidor, tmep] # Lista de filmes e séries
 playlist_fim_de_semana = Playlist ('fim de semana', fimes_e_series) # Instância da classe playlist
 
-for programa in playlist_fim_de_semana.programas: # Laço de repetição
+print(f'Tamanho da playlist: {len(playlist_fim_de_semana.listagem)}') # Imprime o tamanho da playlist
+
+for programa in playlist_fim_de_semana: # Laço de repetição
     print(programa) # Imprime os valores de programa
+
 
 

@@ -11,14 +11,17 @@ screen = pygame.display.set_mode((800, 600), 0) # Cria a tela
 font = pygame.font.SysFont("arial", 20, True, False) # Cria a fonte
 
 
-AMARELO = (255, 255, 0)   # Definição de cores
-PRETO = (0, 0, 0)         #
-AZUL = (0, 0, 255)        #
-VERMELHO = (255, 0, 0)    #
-BRANCO = (255, 255, 255)  #
-LARANJA = (255, 140, 0)   #
-ROSA = (255, 15, 192)     # 
-CIANO = (0, 255, 255)     #
+                                 # Definição de cores
+AMARELO      =  (255, 255, 0)    # 
+PRETO        =  (0, 0, 0)        # 
+ROXO         =  (48, 25, 52)     # 
+VERMELHO     =  (139, 0, 0)      #
+BRANCO       =  (255, 255, 255)  #
+AZUL_VIOLETA =  (138, 43, 226)   # 
+VIOLETA      =  (148, 0, 211)    # 
+INDIGO       =  (75,0,130)       # 
+AZUL         =  (25,25,112)      #
+ROXO_ROXO    =  (128,0,128)      #
 
 VELOCIDADE = 1 # Velocidade do pacman
 ACIMA = 1      # Direção do pacman
@@ -60,13 +63,15 @@ class Movivel(metaclass=ABCMeta): # Classe abstrata
 
 class Cenario(ElementoJogo): # Classe Cenario
     def __init__(self, tamanho, pac): # Construtor
-        self.pacman = pac # Pacman
+        self.pacman = pac  # Pacman
         self.moviveis = [] # Lista de moviveis
         self.pontos = 0 # Pontos
+        
         # Estados possiveis 0-Jogando 1-Pausado 2-Fim de Jogo  3-Vitoria
+        
         self.estado = 0 # Estado
         self.tamanho = tamanho # Tamanho
-        self.vidas = 5 # Vidas
+        self.vidas = 5  # Vidas
         self.matriz = [ # Matriz que faz o mapa
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], # Linha 0
             [2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2], # Linha 1
@@ -101,12 +106,12 @@ class Cenario(ElementoJogo): # Classe Cenario
 ############################################################################################################
 
     def adicionar_movivel(self, obj): # Adiciona um objeto movível
-        self.moviveis.append(obj) # Adiciona o objeto na lista de movíveis
+        self.moviveis.append(obj)     # Adiciona o objeto na lista de movíveis
 
-    def pintar_score(self, tela): # Pinta o score na tela
-        pontos_x = self.tamanho * 30 # Posição x do score
-        pontos_img = font.render("Score {}".format(self.pontos), True, AMARELO) # Imagem do score
-        vidas_img = font.render("Vidas {}".format(self.vidas), True, AMARELO) # Imagem das vidas
+    def pintar_pontuacao(self, tela): # Pinta o score na tela
+        pontos_x = self.tamanho * 30  # Posição x do score
+        pontos_img = font.render("Pontuação: {}".format(self.pontos), True, VERMELHO) # Imagem do score
+        vidas_img = font.render("Vidas: {}".format(self.vidas), True, VERMELHO)       # Imagem das vidas
         tela.blit(pontos_img, (pontos_x, 50)) # Pinta o score na tela
         tela.blit(vidas_img, (pontos_x, 100)) # Pinta as vidas na tela
 
@@ -117,10 +122,10 @@ class Cenario(ElementoJogo): # Classe Cenario
             half = self.tamanho // 2 # Metade do tamanho do bloco
             cor = PRETO # Cor do bloco
             if coluna == 2: # Se o bloco for um bloco destrutível
-                cor = AZUL # Cor do bloco
+                cor = ROXO # Cor do bloco
             pygame.draw.rect(tela, cor, (x, y, self.tamanho, self.tamanho), 0) # Pinta o bloco na tela
             if coluna == 1: # Se o bloco for um bloco indestrutível
-                pygame.draw.circle(tela, AMARELO, (x + half, y + half), self.tamanho // 10, 0) # Pinta o círculo na tela / Tamanho do círculo
+                pygame.draw.circle(tela, VERMELHO, (x + half, y + half), self.tamanho // 10, 0) # Pinta o círculo na tela / Tamanho do círculo
 
 ############################################################################################################
 
@@ -139,8 +144,8 @@ class Cenario(ElementoJogo): # Classe Cenario
 
 ############################################################################################################
 
-    def pintar_texto_centro(self, tela, texto): # Printa o texto no centro da tela
-        texto_img = font.render(texto, True, AMARELO) # Imagem do texto
+    def pintar_texto_centro(self, tela, texto): # Printa o texto no centro da tela quando algo acontece
+        texto_img = font.render(texto, True, VERMELHO) # Imagem do texto
         texto_x = (tela.get_width() - texto_img.get_width()) // 2 # Posição x do texto
         texto_y = (tela.get_height() - texto_img.get_height()) // 2 # Posição y do texto
         tela.blit(texto_img, (texto_x, texto_y)) # Printa o texto na tela
@@ -159,7 +164,7 @@ class Cenario(ElementoJogo): # Classe Cenario
     def pintar_jogando(self, tela): # Função que printa a mensagem de jogando na tela
         for numero_linha, linha in enumerate(self.matriz): # Para cada linha da matriz
             self.pintar_linha(tela, numero_linha, linha) # Printa a linha na tela
-        self.pintar_score(tela) # Printa o score na tela
+        self.pintar_pontuacao(tela) # Printa o score na tela
 
 ############################################################################################################
 
@@ -263,7 +268,7 @@ class Pacman(ElementoJogo, Movivel): # Classe que representa o pacman
 
     def pintar(self, tela): # Função que printa o pacman
         # Desenhar o corpo do Pacman
-        pygame.draw.circle(tela, AMARELO, (self.centro_x, 
+        pygame.draw.circle(tela, VERMELHO, (self.centro_x, 
                            self.centro_y), self.raio, 0) # ^^^Desenha o corpo do pacman^^^	
 
         self.abertura += self.velocidade_abertura # Abertura da boca do pacman é a abertura atual + a velocidade da abertura
@@ -402,10 +407,10 @@ class Fantasma(ElementoJogo): # Classe fantasma
 if __name__ == "__main__": # Se o arquivo for executado diretamente
     size = 600 // 30       # Tamanho da tela é 600 / 30
     pacman = Pacman(size)  # Cria o objeto Pacman
-    blinky = Fantasma(VERMELHO, size) # Cria o objeto Fantasma vermelho
-    inky = Fantasma(CIANO, size)      # Cria o objeto Fantasma ciano
-    clyde = Fantasma(LARANJA, size)   # Cria o objeto Fantasma laranja
-    pinky = Fantasma(ROSA, size)      # Cria o objeto Fantasma rosa
+    blinky = Fantasma(ROXO_ROXO, size) # Cria o objeto Fantasma vermelho
+    inky = Fantasma(INDIGO, size)      # Cria o objeto Fantasma ciano
+    clyde = Fantasma(AZUL_VIOLETA, size)   # Cria o objeto Fantasma laranja
+    pinky = Fantasma(VIOLETA, size)        # Cria o objeto Fantasma rosa
     cenario = Cenario(size, pacman)   # Cria o objeto Cenario
     cenario.adicionar_movivel(pacman) # Adiciona o Pacman ao cenário
     cenario.adicionar_movivel(blinky) # Adiciona o Fantasma vermelho ao cenário

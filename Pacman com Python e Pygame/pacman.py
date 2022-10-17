@@ -2,7 +2,7 @@
 # Para mudanças entre classes: ##-----------------------------------------------------------------##-----------------------------------------------------------------##
 # Para mudanças dentro de uma classe: #--------------------------------------------------------------------------------------------------------------------------------------#
 
-#Pressione "P" para pausar o jogo
+# Pressione "P" para pausar o jogo
 
 import pygame 
 from abc import ABCMeta, abstractmethod 
@@ -14,7 +14,7 @@ pygame.init() # Inicializa o pygame
 ##-----------------------------------------------------------------##-----------------------------------------------------------------##
 
 screen = pygame.display.set_mode((770, 560), 0) # Cria a tela (Alterar as dimensões da tela aqui)
-font = pygame.font.SysFont("arial", 20, True, False) # Cria a fonte (Alterar a fonte aqui)
+font = pygame.font.SysFont("Trebuchet MS", 20, True, False) # Cria a fonte (Alterar a fonte aqui)
 
 
                                  # Definição de cores
@@ -72,7 +72,7 @@ class Cenario(ElementoJogo): # Classe Cenario
     def __init__(self, tamanho, pac): # Construtor
         self.pacman = pac  # Pacman
         self.moviveis = [] # Lista de moviveis
-        self.pontos = -1 # Pontos (Quantidade de pontos iniciais)
+        self.pontos = -1   # Pontos (Quantidade de pontos iniciais)
         
         # Estados possiveis:
         # 0 - Jogando 
@@ -82,7 +82,7 @@ class Cenario(ElementoJogo): # Classe Cenario
         
         self.estado = 0 # Estado
         self.tamanho = tamanho # Tamanho
-        self.vidas = 1  # Vidas
+        self.vidas = 3  # Vidas
         self.matriz = [ # Matriz que faz o mapa
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], # Linha 0
             [2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2], # Linha 1
@@ -159,7 +159,7 @@ class Cenario(ElementoJogo): # Classe Cenario
 
     def printar_texto_vitoria(self, tela, texto): # Printa o texto no centro da tela quando o jogador ganha
         texto_img = font.render(texto, True, VERMELHO) # Imagem do texto
-        texto_x = (tela.get_width() - texto_img.get_width()) // 1.03 # Posição x do texto
+        texto_x = (tela.get_width() - texto_img.get_width()) // 1.05 # Posição x do texto
         texto_y = (tela.get_height() - texto_img.get_height()) // 2  # Posição y do texto
         tela.blit(texto_img, (texto_x, texto_y)) # Printa o texto na tela
         
@@ -246,7 +246,7 @@ class Cenario(ElementoJogo): # Classe Cenario
                     if isinstance(movivel, Pacman) and self.matriz[lin][col] == 1: # Se o movível for um pacman e a posição atual dele for um bloco comum
                         self.pontos += 1 # Adiciona um ponto
                         self.matriz[lin][col] = 0 # Posição atual do pacman na matriz é 0
-                        if self.pontos >= 305: # Se o score for maior ou igual a 305 (que é a pontuação máxima)
+                        if self.pontos >= 281: # Se o score for maior ou igual a 281 (que é a pontuação máxima)
                             self.estado = 3 # Estado é 3
                 else: # Se a posição de intenção do movível não estiver dentro da matriz ou for um bloco destrutível
                     movivel.recusar_movimento(direcoes) # Movível recusa o movimento

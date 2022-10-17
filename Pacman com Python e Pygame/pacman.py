@@ -4,6 +4,7 @@
 
 # Pressione "P" para pausar o jogo
 
+
 import pygame 
 from abc import ABCMeta, abstractmethod 
 import random 
@@ -471,7 +472,6 @@ if __name__ == "__main__": # Se o arquivo for executado diretamente
         
         
         
-   
    
    
    

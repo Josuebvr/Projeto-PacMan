@@ -2,7 +2,7 @@
 # Para mudanças entre classes: ##-----------------------------------------------------------------##-----------------------------------------------------------------##
 # Para mudanças dentro de uma classe: #--------------------------------------------------------------------------------------------------------------------------------------#
 
-#Pressione "P" para pausar o jogo
+# Pressione "P" para pausar o jogo
 
 import pygame 
 from abc import ABCMeta, abstractmethod 

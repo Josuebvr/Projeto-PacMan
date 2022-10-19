@@ -223,9 +223,9 @@ class Cenario(ElementoJogo): # Classe Cenario
 
 
     def calcular_regras_jogando(self): # Função que calcula as regras do jogo quando estiver jogando
-        for movivel in self.moviveis: # Para cada movível
-            lin = int(movivel.linha)  # Linha do movível
-            col = int(movivel.coluna) # Coluna do movível
+        for movivel in self.moviveis:  # Para cada movível
+            lin = int(movivel.linha)   # Linha do movível
+            col = int(movivel.coluna)  # Coluna do movível
             lin_intencao = int(movivel.linha_intencao)  # Linha de intenção do movível
             col_intencao = int(movivel.coluna_intencao) # Coluna de intenção do movível
             direcoes = self.get_direcoes(lin, col) # Direções possíveis
@@ -476,3 +476,4 @@ if __name__ == "__main__": # Se o arquivo for executado diretamente
    
    
         
+
